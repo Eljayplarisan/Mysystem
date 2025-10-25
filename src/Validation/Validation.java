@@ -8,11 +8,12 @@ import Main.Main;
 public class Validation {
     
     public void Register(){
-    Config con = new Config();
-     System.out.print("Add user name: ");
+        
+        Config con = new Config();
+        System.out.print("Add user name: ");
         String name = Main.lp.nextLine();
         while(true){
-            String qry = "SELECT * FROM tbl_user WHERE u_name = ?";
+            String qry = "SELECT * FROM tbl_main WHERE u_name = ?";
             java.util.List<java.util.Map<String, Object>> result = con.fetchRecords(qry, name);
 
             if (result.isEmpty()) {
@@ -27,22 +28,26 @@ public class Validation {
         System.out.print("Add user password: ");
         String pass = Main.lp.nextLine();
     
-        System.out.println("Choose role (1. Admin, 2. User): ");
+        System.out.println("Choose role (1. Admin, 2. User 3. Staff): ");
         int chooseRole = Main.lp.nextInt();
         
         String role = "";
-        if(chooseRole == 1){
-            role = "Admin";
-        }else{
-            role = "User";
-        }
+            if(chooseRole == 1){
+                role = "Admin";
+            }else if (chooseRole == 2){
+                role = "User";
+            } else if (chooseRole == 3){
+                role = "Staff";
+            }
        
-        String sql = "INSERT INTO tbl_user (u_name, u_email, u_pass, u_role, u_status) VALUES(?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO tbl_main (u_name, u_email, u_pass, u_role, u_status) VALUES(?, ?, ?, ?, ?)";
         con.addRecord(sql, name, email, pass, role, "Pending");
         
     }
   public void login(){
-    System.out.print("Enter Email: ");
+      
+      
+        System.out.print("Enter Email: ");
         String email = Main.lp.nextLine();
 
         System.out.print("Enter Password: ");
@@ -55,7 +60,7 @@ public class Validation {
             if (role.equalsIgnoreCase("Admin")) {
                 Main.logindashboard();
             } else {
-                System.out.println("Cashier dashboard coming soon...");
+                System.out.println("Librarian dashboard coming soon...");
             }
         }
     

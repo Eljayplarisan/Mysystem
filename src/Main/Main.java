@@ -44,13 +44,14 @@ public class Main {
 public static void logindashboard(){
     
     
-    System.out.println("WELCOME TO MY SYSTEM");
+     System.out.println("WELCOME TO THE ADMIM DASHBOARD");
          System.out.println("1. Add User");
          System.out.println("2. View User");
          System.out.println("3. Update User");
          System.out.println("4. Delete User");
          System.out.println("5. Approve");
-         System.out.println("6. Exit");
+         System.out.println("6. Add books");
+         System.out.println("7. Exit");
 
          System.out.print("\nChoose an option: ");
          int option = lp.nextInt();
@@ -79,6 +80,9 @@ public static void logindashboard(){
            ud.approveuser();
             break;
          case 6:
+             ud.addbooks();
+           break;
+         case 7:
              main(null);
              break;
         
@@ -87,5 +91,17 @@ public static void logindashboard(){
       
 
 }
+
+  public static void Staff(){
+  
+      System.out.println("WELCOME TO THE STAFF DASHBOARD");
+  
+  
+  
+  
+  
+  
+  
+  }
 
 }
